@@ -1,511 +1,1345 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishnu Pratap Singh | AI & ML Developer</title>
+    <title>Vishnu Pratap Singh Rajput | Python Full-Stack & AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* Custom styles for the futuristic theme */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #E0E0E0;
-            overflow-x: hidden;
-        }
-
-        /* The animated background canvas */
-        #background-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        /* Glassmorphism effect for content containers */
-        .card {
-            background: rgba(10, 10, 20, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 191, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            border-color: rgba(0, 191, 255, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 191, 255, 0.1);
-        }
-
-        /* Section header styling */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: 1px;
-        }
-
-        .section-header i {
-            color: #00BFFF; /* DeepSkyBlue */
-            font-size: 2.25rem;
-        }
-        
-        /* Fade-in animation on scroll */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Timeline Styles */
-        .timeline-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background-color: rgba(0, 191, 255, 0.2);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1.5px;
-        }
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: #0a0a14;
-            border: 4px solid #00BFFF;
-            top: 28px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        .timeline-left {
-            left: 0;
-        }
-        .timeline-right {
-            left: 50%;
-        }
-        .timeline-left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 32px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid rgba(0, 191, 255, 0.2);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent rgba(0, 191, 255, 0.2);
-        }
-        .timeline-right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 32px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid rgba(0, 191, 255, 0.2);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent rgba(0, 191, 255, 0.2) transparent transparent;
-        }
-        .timeline-right::after {
-            left: -10px;
-        }
-        .timeline-content {
-            padding: 20px 30px;
-            position: relative;
-            border-radius: 8px;
-        }
-        @media screen and (max-width: 768px) {
-            .timeline-container::after {
-                left: 20px;
-            }
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px;
-                padding-right: 15px;
-            }
-            .timeline-item::before {
-                left: 50px;
-                border: medium solid rgba(0, 191, 255, 0.2);
-                border-width: 10px 10px 10px 0;
-                border-color: transparent rgba(0, 191, 255, 0.2) transparent transparent;
-            }
-            .timeline-left::after, .timeline-right::after {
-                left: 10px;
-            }
-            .timeline-right {
-                left: 0%;
-            }
-        }
-
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0077b6;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00BFFF;
-        }
-    </style>
-</head>
-<body class="bg-black">
-
-    <canvas id="background-canvas"></canvas>
-
-    <!-- Header/Navigation -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white hover:text-blue-400 transition-colors">V P S R</a>
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-400 transition-all">About</a>
-                <a href="#experience" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-400 transition-all">Experience</a>
-                <a href="#education" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-400 transition-all">Education</a>
-                <a href="#projects" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-400 transition-all">Projects</a>
-                <a href="#achievements" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-400 transition-all">Achievements</a>
-                <a href="#contact" class="text-gray-300 hover:text-white border-b-2 border-transparent hover:border-blue-400 transition-all">Contact</a>
-            </div>
-            <!-- Mobile Nav Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </nav>
-        <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/80 backdrop-blur-lg">
-            <a href="#about" class="block py-3 px-6 text-center text-gray-300 hover:bg-gray-800">About</a>
-            <a href="#experience" class="block py-3 px-6 text-center text-gray-300 hover:bg-gray-800">Experience</a>
-            <a href="#education" class="block py-3 px-6 text-center text-gray-300 hover:bg-gray-800">Education</a>
-            <a href="#projects" class="block py-3 px-6 text-center text-gray-300 hover:bg-gray-800">Projects</a>
-            <a href="#achievements" class="block py-3 px-6 text-center text-gray-300 hover:bg-gray-800">Achievements</a>
-            <a href="#contact" class="block py-3 px-6 text-center text-gray-300 hover:bg-gray-800">Contact</a>
-        </div>
-    </header>
-
-    <main class="relative z-10">
-        <!-- Hero Section -->
-        <section id="about" class="min-h-screen flex items-center pt-24 pb-12 md:pt-0 md:pb-0">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-                <!-- Left Column: Text -->
-                <div class="md:w-3/5 text-center md:text-left">
-                    <p class="text-xl md:text-6xl font-bold text-blue-300 mb-2">Vishnu Pratap Singh Rajput</p>
-                    <h1 class="text-4xl md:text-4xl font-bold text-white mb-4">Machine Learning Engineer & AI Developer</h1>
-                    <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mb-8">
-                        Expertise in Python, Django, and predictive analytics. Experienced in building ML models and web applications with a track record of leading technical projects and delivering innovative solutions.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <!-- IMPORTANT: Replace '#' with the actual path to your resume PDF file -->
-                        <a href="doc/Vishnu_Pratap_Singh.pdf" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
-                            <i class="fas fa-download"></i>
-                            Download Resume
-                        </a>
-                        <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
-                            <i class="fas fa-paper-plane"></i>
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-                <!-- Right Column: Photo -->
-                <div class="md:w-2/5 flex justify-center">
-                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500/50 shadow-2xl shadow-blue-500/20">
-                        <!-- IMPORTANT: Replace this placeholder URL with a direct link to your photo -->
-                        <img src="images/avatar.jpg" alt="Vishnu Pratap Singh" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 md:py-32 fade-in-section">
-             <div class="container mx-auto px-6 max-w-5xl">
-                <h2 class="section-header justify-center">
-                    <i class="fas fa-briefcase"></i>
-                    Experience
-                </h2>
-                <div class="space-y-8">
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-white">AI Application Developer (Intern)</h3>
-                        <p class="text-blue-300 font-semibold mb-2">Virtuon AI Pvt. Ltd. | Feb 2025 - April 2025</p>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>Completed a 2-month internship focused on AI-driven solutions in healthcare.</li>
-                            <li>Designed and trained deep learning models (CNNs, Transformers) for real-time heart rate estimation, achieving MAE of 1.94 bpm.</li>
-                        </ul>
-                    </div>
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-white">Co-Founder & Product Developer</h3>
-                        <p class="text-blue-300 font-semibold mb-2">Paniwala (Startup) | Jul 2022 - Dec 2023</p>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>Led the ideation, design, and development of a water bottle ordering & distribution platform.</li>
-                            <li>Secured multiple awards, including Top 20 at IIT Roorkee Innowave and 1st place in hackathons.</li>
-                            <li>Attained copyright protection for the platform's innovation.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Timeline Section -->
-        <section id="education" class="py-20 md:py-32 bg-black/30 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="section-header justify-center">
-                    <i class="fas fa-graduation-cap"></i>
-                    Education
-                </h2>
-                <div class="timeline-container">
-                    <div class="timeline-item timeline-left">
-                        <div class="timeline-content card">
-                            <h3 class="text-xl font-bold text-white">Bachelor of Technology, AI & ML</h3>
-                            <p class="text-blue-300 font-semibold my-1">Sagar Institute of Research and Technology (SIRT), Bhopal</p>
-                            <p class="text-gray-400 text-sm">Aug 2021 - June 2025</p>
-                            <p class="text-gray-300 mt-2">CGPA: 8.12</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item timeline-right">
-                        <div class="timeline-content card">
-                            <h3 class="text-xl font-bold text-white">12th Grade (Secondary Education)</h3>
-                            <p class="text-blue-300 font-semibold my-1">Golden Bright Career H.S. School, Ichhawar</p>
-                            <p class="text-gray-300 mt-2">Percentage: 63.40%</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item timeline-left">
-                        <div class="timeline-content card">
-                            <h3 class="text-xl font-bold text-white">10th Grade</h3>
-                            <p class="text-blue-300 font-semibold my-1">Vishwa Jyoti Convent School, Ichhawar</p>
-                            <p class="text-gray-300 mt-2">Percentage: 81%</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 md:py-32 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="section-header justify-center">
-                    <i class="fas fa-code-branch"></i>
-                    Featured Projects
-                </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-white mb-2">Crop Yield Prediction</h3>
-                        <p class="text-gray-400 mb-4">An ML model using Random Forest to predict crop yield, profit, and duration with 82% accuracy, integrating a Weather API.</p>
-                        <div class="text-blue-400 font-semibold">Python | Machine Learning</div>
-                    </div>
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-white mb-2">VN Music</h3>
-                        <p class="text-gray-400 mb-4">A music streaming and upload platform with user login, profile management, and music uploads.</p>
-                         <div class="text-blue-400 font-semibold">Django | Python | HTML/CSS</div>
-                    </div>
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-white mb-2">Study VP</h3>
-                        <p class="text-gray-400 mb-4">A study room platform for students to share notes, create subject rooms, and share courses.</p>
-                         <div class="text-blue-400 font-semibold">Django | Python | HTML</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Achievements Section -->
-        <section id="achievements" class="py-20 md:py-32 bg-black/30 fade-in-section">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="section-header justify-center">
-                    <i class="fas fa-trophy"></i>
-                    Achievements & Awards
-                </h2>
-                <div class="space-y-6">
-                    <div class="card p-6 rounded-xl flex items-center gap-4">
-                        <i class="fas fa-award text-3xl text-yellow-400"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">1st Runner-Up: SAGE Utsav Ramp Walk</h3>
-                            <p class="text-gray-400">Awarded for showcasing confidence and collaboration.</p>
-                        </div>
-                    </div>
-                     <div class="card p-6 rounded-xl flex items-center gap-4">
-                        <i class="fas fa-star text-3xl text-yellow-400"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">Best Student Award</h3>
-                            <p class="text-gray-400">For exemplary academic performance, leadership, and contributions.</p>
-                        </div>
-                    </div>
-                     <div class="card p-6 rounded-xl flex items-center gap-4">
-                        <i class="fas fa-sitemap text-3xl text-yellow-400"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">Best for Coordination</h3>
-                            <p class="text-gray-400">For successfully organizing a National Level Hackathon with 300+ participants.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 fade-in-section">
-            <div class="container mx-auto px-6 max-w-3xl text-center">
-                <h2 class="section-header justify-center">
-                    <i class="fas fa-envelope-open-text"></i>
-                    Get In Touch
-                </h2>
-                <p class="text-lg text-gray-300 mb-8">
-                    I'm open to discussing new projects and opportunities. Let's build something amazing together.
-                </p>
-                <a href="mailto:vishnurp01234@gmail.com" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg shadow-blue-600/20 inline-block">
-                    Say Hello
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-black/50 relative z-10">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-             <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://github.com/vpsrathod" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/vpsr" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:vishnurp01234@gmail.com" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>&copy; 2025 Vishnu Pratap Singh Rajput. All rights reserved.</p>
-            <p class="text-sm mt-2">Crafted with code and creativity.</p>
-        </div>
-    </footer>
-
     <script>
-        // --- Animated Background ---
-        const canvas = document.getElementById('background-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, particles;
-        function init() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            particles = [];
-            for (let i = 0; i < 60; i++) {
-                particles.push(new Particle());
-            }
-        }
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 1.5 + 0.5;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 191, 255, 0.8)';
-                ctx.fill();
-            }
-        }
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            connectParticles();
-            requestAnimationFrame(animate);
-        }
-        function connectParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 191, 255, ${1 - distance / 120})`;
-                        ctx.lineWidth = 0.3;
-                        ctx.stroke();
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        space: {
+                            dark: '#050A30',
+                            blue: '#0B1354',
+                            purple: '#2D1E7E',
+                            accent: '#00FFFF',
+                            accent2: '#7B4DFF',
+                            light: '#E0F7FF'
+                        }
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo': ['Exo', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+                        'rotate-slow': 'rotate 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.7 }
+                        },
+                        rotate: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        }
                     }
                 }
             }
         }
-        window.addEventListener('resize', init);
-        init();
-        animate();
-        
-        // --- Scroll Animations ---
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { rootMargin: '0px', threshold: 0.1 });
-        sections.forEach(section => {
-            if(section) {
-               observer.observe(section);
-            }
-        });
-        
-        // --- Header Background on Scroll ---
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(10, 10, 20, 0.7)';
-                header.style.backdropFilter = 'blur(10px)';
-                header.style.webkitBackdropFilter = 'blur(10px)';
-                header.style.borderBottom = '1px solid rgba(0, 191, 255, 0.1)';
-            } else {
-                header.style.background = 'transparent';
-                header.style.backdropFilter = 'none';
-                header.style.webkitBackdropFilter = 'none';
-                header.style.borderBottom = 'none';
-            }
-        });
+    </script>
+    <style>
+        body {
+            background-color: #050A30;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(43, 30, 126, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(11, 19, 84, 0.4) 0%, transparent 40%);
+            overflow-x: hidden;
+        }
 
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkleAnimation var(--duration) ease-in-out infinite;
+        }
+
+        @keyframes twinkleAnimation {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        .circuit-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+            opacity: 0.5;
+            transform-origin: left center;
+        }
+
+        .terminal-text {
+            border-right: 2px solid #00FFFF;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00FFFF }
+        }
+
+        .glow-border {
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                        inset 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .skill-node {
+            transition: all 0.3s ease;
+            background: rgba(11, 19, 84, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .skill-node:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            background: rgba(11, 19, 84, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .timeline-rail {
+            height: 3px;
+            background: linear-gradient(90deg, #00FFFF, #7B4DFF);
+        }
+
+        .timeline-node {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #00FFFF;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px #00FFFF;
+        }
+
+        .parallax {
+            transform: translateZ(-10px) scale(2);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation-name: float-particle;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050A30;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00FFFF, #7B4DFF);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00FFFF;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #00FFFF;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        #scroll-progress {
+            width: 0;
+            transition: width 0.2s ease;
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid #00FFFF;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="font-exo text-white">
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-space-accent to-space-accent2 z-50"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-space-dark bg-opacity-80 backdrop-filter backdrop-blur-lg border-b border-space-accent border-opacity-20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-space-accent to-space-accent2 flex items-center justify-center mr-3 animate-pulse-glow">
+                    <span class="font-orbitron font-bold text-space-dark">VP</span>
+                </div>
+                <span class="font-orbitron text-xl text-space-accent">VISHNU.SYS</span>
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="hover:text-space-accent transition-colors duration-300" aria-label="Go to About section">ABOUT</a>
+                <a href="#skills" class="hover:text-space-accent transition-colors duration-300" aria-label="Go to Skills section">SKILLS</a>
+                <a href="#projects" class="hover:text-space-accent transition-colors duration-300" aria-label="Go to Projects section">PROJECTS</a>
+                <a href="#research" class="hover:text-space-accent transition-colors duration-300" aria-label="Go to Research section">RESEARCH</a>
+                <a href="#experience" class="hover:text-space-accent transition-colors duration-300" aria-label="Go to Experience section">EXPERIENCE</a>
+                <a href="#contact" class="hover:text-space-accent transition-colors duration-300" aria-label="Go to Contact section">CONTACT</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-space-accent focus:outline-none" aria-label="Toggle mobile menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-space-blue bg-opacity-95 backdrop-filter backdrop-blur-lg">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#about" class="block hover:text-space-accent transition-colors duration-300" aria-label="Go to About section">ABOUT</a>
+                <a href="#skills" class="block hover:text-space-accent transition-colors duration-300" aria-label="Go to Skills section">SKILLS</a>
+                <a href="#projects" class="block hover:text-space-accent transition-colors duration-300" aria-label="Go to Projects section">PROJECTS</a>
+                <a href="#research" class="block hover:text-space-accent transition-colors duration-300" aria-label="Go to Research section">RESEARCH</a>
+                <a href="#experience" class="block hover:text-space-accent transition-colors duration-300" aria-label="Go to Experience section">EXPERIENCE</a>
+                <a href="#contact" class="block hover:text-space-accent transition-colors duration-300" aria-label="Go to Contact section">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="min-h-screen flex items-center relative overflow-hidden pt-16">
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-full bg-space-accent bg-opacity-20 border border-space-accent text-space-accent text-sm">
+                        <span class="animate-pulse mr-2">●</span> PYTHON FULL-STACK DEVELOPER · AI & ML
+                    </div>
+                    <h1 class="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Hi, I'm <span class="text-space-accent">Vishnu Pratap Singh Rajput</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-light">
+                        Building intelligent web experiences with Python, Django, and AI.
+                    </h2>
+                    <p class="text-lg text-gray-300 typewriter" id="typewriter">
+                        Launching intelligent experiences with code, creativity, and curiosity.
+                    </p>
+                    <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 font-mono text-sm">
+                        <div class="flex items-center text-space-accent mb-2">
+                            <span class="mr-2">$</span> booting skills...
+                        </div>
+                        <div id="skills-terminal" class="text-gray-300"></div>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-space-accent to-space-accent2 text-space-dark font-orbitron font-bold rounded-lg hover:shadow-lg hover:shadow-space-accent/30 transition-all duration-300 flex items-center" aria-label="Explore projects">
+                            <span class="mr-2">🚀</span> Explore Projects
+                        </a>
+                        <!-- Update this path to wherever your CV is hosted -->
+                        <a href="./doc/Vishnu_Pratap_CV.pdf" class="px-6 py-3 bg-transparent border border-space-accent text-space-accent font-orbitron font-bold rounded-lg hover:bg-space-accent hover:bg-opacity-10 transition-all duration-300 flex items-center" aria-label="Download resume">
+                            <span class="mr-2">📄</span> Download Resume
+                        </a>
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        <span class="font-orbitron text-space-accent">Base:</span> Bangalore, India ·
+                        <span class="font-orbitron text-space-accent">Role:</span> Python Full-Stack Developer
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-space-accent to-space-accent2 rounded-full opacity-20 blur-3xl animate-pulse-glow"></div>
+                    <div class="relative animate-float">
+                        <!-- Futuristic avatar / radar -->
+                        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <circle cx="250" cy="250" r="200" fill="none" stroke="#00FFFF" stroke-width="1" stroke-dasharray="10 5" class="animate-rotate-slow" />
+                            <circle cx="250" cy="250" r="150" fill="none" stroke="#7B4DFF" stroke-width="1" stroke-dasharray="20 10" class="animate-rotate-slow" style="animation-direction: reverse;" />
+                            <path d="M250,50 L250,150 M150,250 L350,250 M250,350 L250,450" stroke="#00FFFF" stroke-width="2" fill="none" />
+                            <path d="M100,100 L200,200 M300,300 L400,400 M100,400 L200,300 M300,200 L400,100" stroke="#7B4DFF" stroke-width="2" fill="none" />
+                            <circle cx="250" cy="250" r="50" fill="#050A30" stroke="#00FFFF" stroke-width="2" />
+                            <circle cx="250" cy="250" r="20" fill="#00FFFF" class="animate-pulse-glow" />
+                            <!-- Mini AI brain icon -->
+                            <g transform="translate(220, 220) scale(0.6)">
+                                <path d="M60,20 C60,20 90,40 90,60 C90,80 60,100 60,100 C60,100 30,80 30,60 C30,40 60,20 60,20 Z" fill="none" stroke="#00FFFF" stroke-width="3" />
+                                <path d="M60,20 C60,20 30,40 30,60 C30,80 60,100 60,100 C60,100 90,80 90,60 C90,40 60,20 60,20 Z" fill="none" stroke="#7B4DFF" stroke-width="3" />
+                                <circle cx="60" cy="60" r="10" fill="#00FFFF" class="animate-pulse-glow" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div class="circuit-line parallax" style="top: 20%; left: 0; width: 30%; transform: rotate(5deg);" data-speed="0.2"></div>
+            <div class="circuit-line parallax" style="top: 40%; right: 0; width: 40%; transform: rotate(-5deg);" data-speed="0.3"></div>
+            <div class="circuit-line parallax" style="top: 70%; left: 10%; width: 50%; transform: rotate(2deg);" data-speed="0.1"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">ASTRONAUT OF <span class="text-space-accent">AI</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-space-accent to-space-accent2 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-space-accent to-space-accent2 rounded-full opacity-20 blur-3xl animate-pulse-glow"></div>
+                    <div class="relative border-2 border-space-accent rounded-full p-2 glow-border max-w-xs mx-auto">
+                        <!-- <div class="rounded-full overflow-hidden aspect-square bg-space-blue relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                    <circle cx="100" cy="100" r="80" fill="#0B1354" stroke="#00FFFF" stroke-width="2" />
+                                    <circle cx="100" cy="100" r="70" fill="#050A30" stroke="#00FFFF" stroke-width="1" />
+                                    <ellipse cx="100" cy="90" rx="40" ry="45" fill="#2D1E7E" stroke="#00FFFF" stroke-width="1" />
+                                    <path d="M70,110 C70,130 85,145 100,145 C115,145 130,130 130,110" fill="none" stroke="#00FFFF" stroke-width="2" />
+                                    <path d="M80,70 Q100,50 120,70" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.5" />
+                                    <path d="M60,100 L80,100 M120,100 L140,100" stroke="#7B4DFF" stroke-width="1" stroke-dasharray="2 2" />
+                                </svg>
+                                <div class="absolute bottom-10 w-full text-center font-orbitron text-space-accent text-sm">VISHNU.AI</div>
+                            </div>
+                        </div> -->
+                        <div class="rounded-full overflow-hidden aspect-square bg-space-blue relative">
+    <img src="./images/Untitled-3wedf.png"
+         alt="Vishnu Pratap Singh Rajput"
+         class="w-full h-full object-cover" />
+    <div class="absolute bottom-3 w-full text-center font-orbitron text-space-accent text-xs bg-space-dark bg-opacity-60 py-1">
+        VISHNU.AI
+    </div>
+</div>
+
+                    </div>
+                </div>
+                <div class="space-y-6 bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm p-6 rounded-lg border border-space-accent border-opacity-20">
+                    <div class="flex items-center space-x-2 font-orbitron text-space-accent">
+                        <span class="animate-pulse">●</span>
+                        <span>PERSONAL LOG</span>
+                        <div class="flex-grow h-px bg-space-accent bg-opacity-30"></div>
+                        <span class="text-xs">ENTRY.2025.01</span>
+                    </div>
+                    <p class="text-sm">
+                        AI & ML Engineering graduate skilled in Python, Django, SQL, JavaScript, and AWS. I’ve built
+                        industry-level projects like HeartVision (real-time rPPG heart rate monitor), Crop Yield
+                        Prediction, and MovieCall, with strong focus on API integration, debugging, SDLC, and deep
+                        learning. National hackathons, startup experience, and leadership roles shaped me into an
+                        engineer who can ship real products—not just classroom assignments.
+                    </p>
+                    <div class="bg-space-dark bg-opacity-50 border border-space-accent border-opacity-20 rounded p-4 font-mono text-sm">
+                        <div class="text-gray-400">// My mission in one function</div>
+                        <div><span class="text-space-accent">function</span> <span class="text-space-accent2">AIEngineer</span>() {</div>
+                        <div class="pl-4"><span class="text-space-accent">return</span> <span class="text-space-accent2">{ code: "Python & Django", mindset: "AlwaysEvolving", domain: "AI & Web" }</span></div>
+                        <div>}</div>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-sm">Python Full-Stack</span>
+                        <span class="px-3 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-sm">AI / ML Projects</span>
+                        <span class="px-3 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-sm">Hackathon Winner</span>
+                        <span class="px-3 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-sm">Startup Co-Founder</span>
+                        <span class="px-3 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-sm">T&P Convener</span>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">NEURAL <span class="text-space-accent">CONSTELLATION</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-space-accent to-space-accent2 mx-auto"></div>
+                <p class="mt-4 text-gray-300">Navigate through my technical expertise</p>
+            </div>
+            <div class="mb-8">
+                <div class="flex flex-wrap justify-center gap-4 mb-6">
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="all">All Skills</button>
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="ai">AI / ML</button>
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="backend">Backend</button>
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="frontend">Frontend</button>
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="data">Database</button>
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="aws">AWS Cloud</button>
+                    <button class="skill-filter-btn px-4 py-2 rounded-full bg-space-blue border border-space-accent text-space-accent hover:bg-space-accent hover:bg-opacity-20 transition-all duration-300" data-filter="tools">Tools</button>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 py-16">
+
+                    <!-- Python -->
+                    <div class="skill-node" data-category="backend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-sm">PY</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Python</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Django -->
+                    <div class="skill-node" data-category="backend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-sm">DJ</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Django</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="skill-node" data-category="frontend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-sm">JS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">JavaScript</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HTML / CSS / Bootstrap -->
+                    <div class="skill-node" data-category="frontend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">HTML</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">HTML5</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="frontend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">CSS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">CSS3</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="frontend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">BS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Bootstrap</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="frontend">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">SL</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Streamlit</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SQL / MySQL -->
+                    <div class="skill-node" data-category="data">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">SQL</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">SQL · MySQL</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI / ML -->
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">ML</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Machine Learning</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AI</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">AI</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">CV</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Open-CV</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">NP</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Numpy</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">PD</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Panda</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">SK</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Scikit-learn</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="ai">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">PT</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">PyTorch</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AWS -->
+                    <div class="skill-node" data-category="aws">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AWS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">EC2</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-node" data-category="aws">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AWS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">S3</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-node" data-category="aws">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AWS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">IAM</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-node" data-category="aws">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AWS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">VPC</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-node" data-category="aws">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AWS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Lambda</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-node" data-category="aws">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">AWS</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">SNS</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="skill-node" data-category="tools">
+                        <div class="bg-space-blue bg-opacity-50 border border-space-accent border-opacity-30 rounded-lg p-4 h-full">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                    <span class="font-orbitron text-space-accent text-xs">GIT</span>
+                                </div>
+                                <h3 class="font-orbitron text-lg">Git · GitHub</h3>
+                            </div>
+                            <div class="w-full bg-space-dark rounded-full h-1.5">
+                                <div class="bg-gradient-to-r from-space-accent to-space-accent2 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">MISSION <span class="text-space-accent">LOGS</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-space-accent to-space-accent2 mx-auto"></div>
+                <p class="mt-4 text-gray-300">Explore my latest deployments</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- HeartVision -->
+                <div class="project-card rounded-lg overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-space-accent/40 to-space-accent2/40 flex items-center justify-center">
+                            <span class="font-orbitron text-space-light text-lg"><img src="./images/hr-rppg.png" alt=""></span>
+            
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-space-accent to-space-accent2 opacity-10"></div>
+                        <div class="absolute top-0 left-0 w-full p-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-space-accent animate-pulse mr-2"></div>
+                                <span class="font-orbitron text-xs text-space-accent">LIVE · HEALTHCARE AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm">
+                        <h3 class="font-orbitron text-xl mb-2 text-space-accent">HeartVision – rPPG Heart Rate Monitor</h3>
+                        <p class="text-gray-300 mb-4">
+                            Developed a deep learning–based rPPG model for real-time heart rate detection using webcam
+                            and video feed. Extracts subtle facial color changes and uses FFT-based processing to estimate pulse.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Python</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Streamlit</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">OpenCV</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Deep Learning</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://rppghrmonitor.streamlit.app/" target="_blank" class="px-4 py-2 bg-space-accent text-space-dark font-orbitron text-sm rounded hover:bg-opacity-80 transition-all duration-300 flex items-center" aria-label="View HeartVision live demo">
+                                <span class="mr-1">🌐</span> Live 
+                            </a>
+                            <a href="https://github.com/vpsrathod/rppg_hr_monitor.git" class="px-4 py-2 border border-space-accent text-space-accent font-orbitron text-sm rounded hover:bg-space-accent hover:bg-opacity-10 transition-all duration-300 flex items-center" aria-label="View StudyVP GitHub repository">
+                                <span class="mr-1">📂</span> GitHub
+                            </a>
+                            <!-- Add your GitHub repo if available -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crop Yield Prediction -->
+                <div class="project-card rounded-lg overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-green-500/30 to-space-accent2/30 flex items-center justify-center">
+                            <span class="font-orbitron text-space-light text-lg"><img src="./images/crop yield prediction.png" alt=""></span>
+                        </div>
+                        <div class="absolute top-0 left-0 w-full p-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-space-accent animate-pulse mr-2"></div>
+                                <span class="font-orbitron text-xs text-space-accent">ML · AGRITECH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm">
+                        <h3 class="font-orbitron text-xl mb-2 text-space-accent">Crop Yield Prediction- Using Random Forest</h3>
+                        <p class="text-gray-300 mb-4">
+                            Designed an ML pipeline (Random Forest) with ~82% accuracy using soil nutrients, crop type and
+                            location. 
+                            Integrated weather API to fetch real-time data for scalable yield predictions.
+    
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Python</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Django</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Random Forest</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Weather API</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" target="_blank" class="px-4 py-2 bg-space-accent text-space-dark font-orbitron text-sm rounded hover:bg-opacity-80 transition-all duration-300 flex items-center" aria-label="View HeartVision live demo">
+                                <span class="mr-1">🌐</span> Live
+                            </a>
+                            <a href="https://github.com/vpsrathod/Crop-Yield-Prediction.git" target="_blank" class="px-4 py-2 border border-space-accent text-space-accent font-orbitron text-sm rounded hover:bg-space-accent hover:bg-opacity-10 transition-all duration-300 flex items-center" aria-label="View Crop Yield GitHub repository">
+                                <span class="mr-1">📂</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Call -->
+                <div class="project-card rounded-lg overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-red-500/30 to-space-accent2/30 flex items-center justify-center">
+                            <span class="font-orbitron text-space-light text-lg"><img src="./images/movie call.png" alt=""></span>
+                        </div>
+                        <div class="absolute top-0 left-0 w-full p-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-space-accent animate-pulse mr-2"></div>
+                                <span class="font-orbitron text-xs text-space-accent">WEB · ENTERTAINMENT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm">
+                        <h3 class="font-orbitron text-xl mb-2 text-space-accent">MovieCall – Movie Search Platform</h3>
+                        <p class="text-gray-300 mb-4">
+                            Built a Netflix-style movie search app using OMDb and YouTube APIs to fetch real-time movie
+                            data and trailers. Includes smooth search flow, responsive UI, and clean API handling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">JavaScript</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">HTML</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">CSS</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">OMDb API</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://vpsrathod.github.io/Movie-Call/" target="_blank" class="px-4 py-2 bg-space-accent text-space-dark font-orbitron text-sm rounded hover:bg-opacity-80 transition-all duration-300 flex items-center" aria-label="View MovieCall live site">
+                                <span class="mr-1">🌐</span> Live
+                            </a>
+                            <a href="https://github.com/vpsrathod/Movie-Call" target="_blank" class="px-4 py-2 border border-space-accent text-space-accent font-orbitron text-sm rounded hover:bg-space-accent hover:bg-opacity-10 transition-all duration-300 flex items-center" aria-label="View Crop Yield GitHub repository">
+                                <span class="mr-1">📂</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">INTERSTELLAR <span class="text-space-accent">DISCOVERIES</span></h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-space-accent to-space-accent2 mx-auto"></div>
+            <p class="mt-4 text-gray-300">Scientific explorations and research contributions</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- rPPG research -->
+                <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-space-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                            </div>
+                            <h3 class="font-orbitron text-xl text-space-accent">Remote Photoplethysmography for Heart Rate Detection</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Research on non-contact heart rate monitoring using computer vision and deep learning. Facial
+                            video frames are processed to extract subtle color variations corresponding to blood volume
+                            changes, which are converted to heart rate signals in real time.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">rPPG</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Healthcare AI</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Computer Vision</span>
+                        </div>
+                        <!-- Add link when you have a paper/blog -->
+                        <span class="inline-flex items-center text-space-accent text-sm opacity-70">
+                            Research-in-progress · based on internship at Virtuon AI
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Crop Yield 2.0 / SDLC -->
+                <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-space-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l9-4 9 4-9 4-9-4zm0 6l9 4 9-4m-9 4v6" />
+                                </svg>
+                            </div>
+                            <h3 class="font-orbitron text-xl text-space-accent">Crop Yield Prediction – SDLC & ML Pipelines</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Exploring robust SDLC and data pipelines for agritech ML systems. Focus on integrating
+                            external weather APIs, data cleaning, feature engineering, and deploying prediction
+                            services that can scale for multiple regions and crops.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">ML Pipelines</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">SDLC</span>
+                            <span class="px-2 py-1 bg-space-accent bg-opacity-20 rounded-full text-space-accent text-xs">Agritech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">TECH <span class="text-space-accent">TIMELINE</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-space-accent to-space-accent2 mx-auto"></div>
+                <p class="mt-4 text-gray-300">Career journey through the digital cosmos</p>
+            </div>
+            <div class="relative py-12">
+                <div class="timeline-rail absolute left-0 top-1/2 transform -translate-y-1/2 w-full"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Virtuon AI Internship -->
+                    <div class="relative">
+                        <div class="timeline-node" style="left: 5%;"></div>
+                        <div class="ml-8 md:ml-0 md:mr-8">
+                            <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                                <div class="font-orbitron text-space-accent mb-2">Feb 2025 – Apr 2025</div>
+                                <h3 class="text-xl font-bold mb-2">AI Application Developer Intern · Virtuon AI Pvt. Ltd.</h3>
+                                <p class="text-gray-300">
+                                    Worked on rPPG-based real-time heart rate estimation models. Assisted in data
+                                    preprocessing, model training and evaluation using CNN/Transformer-based
+                                    architectures, and helped integrate the model into a Streamlit web app.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paniwala Startup -->
+                    <div class="relative">
+                        <div class="timeline-node" style="left: 50%;"></div>
+                        <div class="ml-8 md:ml-0 md:mr-8">
+                            <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                                <div class="font-orbitron text-space-accent mb-2">Jul 2022 – Dec 2023</div>
+                                <h3 class="text-xl font-bold mb-2">Co-Founder · Paniwala (Startup)</h3>
+                                <p class="text-gray-300">
+                                    Co-founded a water bottle ordering and distributor management platform. Handled idea
+                                    development, business logic, UI design, logo, PPTs, and hackathon presentations.
+                                    Achieved Top 20 at IIT Roorkee Innowave and 1st place at JLU Bhopal & SISTec Bhopal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T&P Convener -->
+                    <div class="relative">
+                        <div class="timeline-node" style="left: 95%;"></div>
+                        <div class="ml-8 md:ml-0 md:mr-8">
+                            <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                                <div class="font-orbitron text-space-accent mb-2">2023 – 2025</div>
+                                <h3 class="text-xl font-bold mb-2">Convener, Training & Placement Cell</h3>
+                                <p class="text-gray-300">
+                                    Organized 10+ placement drives and supported 150+ students with coordination, communication
+                                    and logistics, strengthening college–industry interaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hackathon Coordinator -->
+                    <div class="relative">
+                        <div class="timeline-node" style="left: 75%;"></div>
+                        <div class="ml-8 md:ml-0 md:mr-8">
+                            <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                                <div class="font-orbitron text-space-accent mb-2">2023 – 2024</div>
+                                <h3 class="text-xl font-bold mb-2">Coordinator, National Hackathon</h3>
+                                <p class="text-gray-300">
+                                    Led sessions for 300+ students, managed event flow, and mentored teams during national-level
+                                    hackathons hosted at the institute.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CERTIFICATIONS -->
+            <div class="mt-16">
+                <h3 class="font-orbitron text-2xl font-bold mb-6 text-center">CERTIFICATIONS</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                <span class="font-orbitron text-space-accent text-xs">IBM</span>
+                            </div>
+                            <h3 class="font-orbitron text-lg text-space-accent">Machine Learning & AI Workshop</h3>
+                        </div>
+                        <p class="text-gray-300 mb-3">
+                            Hands-on workshop by IBM at IIT Roorkee covering ML fundamentals, neural networks, and real-world AI applications.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Mar 2023 · IIT Roorkee</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                <span class="font-orbitron text-space-accent text-xs">DJ</span>
+                            </div>
+                            <h3 class="font-orbitron text-lg text-space-accent">Web Development using Django</h3>
+                        </div>
+                        <p class="text-gray-300 mb-3">
+                            Training by Cybrom Technology Pvt. Ltd. focused on Django framework, full-stack workflows, and REST-style backends.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Cybrom Technology</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-space-purple flex items-center justify-center mr-3">
+                                <span class="font-orbitron text-space-accent text-xs">DB</span>
+                            </div>
+                            <h3 class="font-orbitron text-lg text-space-accent">DBMS with MySQL</h3>
+                        </div>
+                        <p class="text-gray-300 mb-3">
+                            Training in relational database design, SQL queries, joins, and optimization for backend-driven applications.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Shariyan Coding School</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">SIGNAL <span class="text-space-accent">UPLINK</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-space-accent to-space-accent2 mx-auto"></div>
+                <p class="mt-4 text-gray-300">Let’s connect and build something meaningful</p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-space-blue bg-opacity-30 backdrop-filter backdrop-blur-sm border border-space-accent border-opacity-20 rounded-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-3 h-3 rounded-full bg-space-accent animate-pulse mr-2"></div>
+                        <span class="font-orbitron text-space-accent">TRANSMISSION READY</span>
+                        <span class="ml-auto text-xs text-gray-400">Phone: +91 89627 26513</span>
+                        <span class="ml-auto text-xs text-gray-400">Email: vishnurp01234@gmail.com</span>
+
+                    </div>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Identifier</label>
+                            <input type="text" id="name" name="name" class="w-full bg-space-dark bg-opacity-50 border border-space-accent border-opacity-30 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-space-accent" placeholder="Your Name" required aria-required="true">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Communication Channel</label>
+                            <input type="email" id="email" name="email" class="w-full bg-space-dark bg-opacity-50 border border-space-accent border-opacity-30 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-space-accent" placeholder="Your Email" required aria-required="true">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Transmission Content</label>
+                            <textarea id="message" name="message" rows="5" class="w-full bg-space-dark bg-opacity-50 border border-space-accent border-opacity-30 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-space-accent" placeholder="Your Message" required aria-required="true"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-space-accent to-space-accent2 text-space-dark font-orbitron font-bold py-3 px-6 rounded-md hover:shadow-lg hover:shadow-space-accent/30 transition-all duration-300 flex items-center justify-center" aria-label="Submit contact form">
+                            <span class="mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </span>
+                            TRANSMIT MESSAGE
+                        </button>
+                    </form>
+                    <div id="success-message" class="hidden mt-4 p-4 bg-space-accent bg-opacity-20 border border-space-accent rounded-md">
+                        <p class="text-space-accent text-center">Signal received. I’ll orbit back to you soon.</p>
+                    </div>
+                    <div class="mt-8 flex justify-center space-x-6">
+                        <!-- LINKEDIN -->
+                        <a href="https://www.linkedin.com/in/vpsr" target="_blank" class="text-gray-300 hover:text-space-accent transition-colors duration-300" aria-label="Visit LinkedIn profile">
+                            <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732A1.768 1.768 0 116.5 3.2a1.768 1.768 0 010 3.532zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765C13.396 7.179 20 6.988 20 12.241V19z"/>
+                            </svg>
+                        </a>
+                        <!-- GITHUB -->
+                        <a href="https://github.com/vpsrathod" target="_blank" class="text-gray-300 hover:text-space-accent transition-colors duration-300" aria-label="Visit GitHub profile">
+                            <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703C6.726 19.64 6.1 17.841 6.1 17.841c-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <!-- EMAIL -->
+                        <a href="mailto:vishnurp01234@gmail.com" class="text-gray-300 hover:text-space-accent transition-colors duration-300" aria-label="Send email">
+                            <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v.01L12 13 2 4.01V4zm0 3.236V20a2 2 0 002 2h16a2 2 0 002-2V7.236l-9.293 6.72a1 1 0 01-1.414 0L2 7.236z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-space-dark border-t border-space-accent border-opacity-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-space-accent to-space-accent2 flex items-center justify-center mr-2">
+                        <span class="font-orbitron font-bold text-space-dark text-xs">VP</span>
+                    </div>
+                    <span class="font-orbitron text-space-accent">VISHNU.SYS</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 text-sm">
+                        <span class="text-space-accent">$</span> Designed and developed by Vishnu Pratap Singh Rajput
+                    </p>
+                    <p class="text-gray-500 text-xs mt-1">© 2025 All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS (slightly optimized, grouped functions) -->
+    <script>
+        const createStars = () => {
+            const stars = 50;
+            const container = document.body;
+            for (let i = 0; i < stars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const size = Math.random() * 2;
+                const duration = 2 + Math.random() * 4;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--duration', `${duration}s`);
+                container.appendChild(star);
+            }
+        };
+
+        const createParticles = () => {
+            const particleCount = 20;
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = 2 + Math.random() * 3;
+                const x = Math.random() * 100;
+                const duration = 10 + Math.random() * 10;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${x}%`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                particle.style.background = 'radial-gradient(circle, #00FFFF, #7B4DFF)';
+                particlesContainer.appendChild(particle);
+            }
+        };
+
+        const typewriterEffect = (element, text) => {
+            let i = 0;
+            const type = () => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 50);
+                } else {
+                    element.classList.remove('typewriter');
+                }
+            };
+            type();
+        };
+
+        const typewriterSkillsTerminal = () => {
+            const skillsTerminal = document.getElementById('skills-terminal');
+            const skills = ['Python Full-Stack', 'Django & REST', 'AI / ML', 'SQL & MySQL', 'AWS Cloud'];
+            let skillIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            const type = () => {
+                const currentSkill = skills[skillIndex];
+                if (isDeleting) {
+                    skillsTerminal.textContent = currentSkill.substring(0, charIndex);
+                    charIndex--;
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        skillIndex = (skillIndex + 1) % skills.length;
+                        setTimeout(type, 500);
+                        return;
+                    }
+                } else {
+                    skillsTerminal.textContent = currentSkill.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex > currentSkill.length) {
+                        isDeleting = true;
+                        setTimeout(type, 1000);
+                        return;
+                    }
+                }
+                setTimeout(type, isDeleting ? 50 : 100);
+            };
+
+            if (skillsTerminal) type();
+        };
+
+        const setupMobileMenu = () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!menuToggle || !mobileMenu) return;
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                const svg = menuToggle.querySelector('svg');
+                svg.innerHTML = isOpen
+                    ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />'
+                    : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            });
+        };
+
+        const setupSkillsFilter = () => {
+            const filterButtons = document.querySelectorAll('.skill-filter-btn');
+            const skillNodes = document.querySelectorAll('.skill-node');
+            if (!filterButtons.length) return;
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-space-accent', 'bg-opacity-20');
+                        btn.classList.add('bg-space-blue');
+                    });
+                    button.classList.remove('bg-space-blue');
+                    button.classList.add('bg-space-accent', 'bg-opacity-20');
+
+                    skillNodes.forEach(node => {
+                        const category = node.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            node.style.display = 'block';
+                            node.style.opacity = '0';
+                            setTimeout(() => {
+                                node.style.opacity = '1';
+                                node.style.transition = 'opacity 0.5s ease';
+                            }, 50);
+                        } else {
+                            node.style.opacity = '0';
+                            setTimeout(() => {
+                                node.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Default active
+            const firstFilterBtn = filterButtons[0];
+            firstFilterBtn.classList.remove('bg-space-blue');
+            firstFilterBtn.classList.add('bg-space-accent', 'bg-opacity-20');
+        };
+
+        const setupContactForm = () => {
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            if (!form || !successMessage) return;
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    form.classList.remove('hidden');
+                    form.reset();
+                }, 3000);
+            });
+        };
+
+        const setupSmoothScrolling = () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const targetId = anchor.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (!targetElement) return;
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        };
+
+        const debounce = (func, wait) => {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(null, args), wait);
+            };
+        };
+
+        const setupScrollProgress = () => {
+            const progressBar = document.getElementById('scroll-progress');
+            if (!progressBar) return;
+
+            window.addEventListener('scroll', debounce(() => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = `${progress}%`;
+            }, 50));
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createParticles();
+
+            const typewriterElement = document.getElementById('typewriter');
+            if (typewriterElement) {
+                typewriterElement.textContent = '';
+                typewriterEffect(typewriterElement, 'Launching intelligent experiences with code, creativity, and curiosity.');
+            }
+
+            typewriterSkillsTerminal();
+            setupMobileMenu();
+            setupSkillsFilter();
+            setupContactForm();
+            setupSmoothScrolling();
+            setupScrollProgress();
         });
     </script>
 </body>
